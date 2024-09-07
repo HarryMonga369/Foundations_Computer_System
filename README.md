@@ -1,6 +1,6 @@
 # Foundations_Computer_System
 
-# Task 1 : Set Up Project Directory Structure
+# *** Task 1 : Set Up Project Directory Structure
 
 1. Create the Project directory in your home directory:
 mkdir ~/Project
@@ -29,27 +29,22 @@ cp program.c ../docs/
 9. Verify the directory structure by listing the contents recursively:
 ls -R ~/Project
 
-# Task 2: Shell Script to Delete Empty Files
+# *** Task 2: Shell Script to Delete Empty Files
 # Create a shell script named deleteEmptyFilesWithLog.sh:
 
 #!/bin/bash
-
 # Prompt user for directory path
 read -p "Enter the directory path: " dir_path
-
 # Validate if the directory path is valid
 if [ ! -d "$dir_path" ]; then
     echo "The path $dir_path is not a valid directory."
     exit 1
 fi
-
 # Initialize the log file
 log_file="deletedfiles.txt"
 > "$log_file"
-
 # Find and delete empty files, log their names
 find "$dir_path" -type f -empty -print -exec rm {} \; > "$log_file"
-
 # Print the list of deleted files
 if [ -s "$log_file" ]; then
     echo "Deleted files:"
@@ -57,10 +52,8 @@ if [ -s "$log_file" ]; then
 else
     echo "No empty files were found."
 fi
-
 # Clean up by removing the log file
 rm "$log_file"
-
 ***Make the script executable and run it:
 chmod +x deleteEmptyFilesWithLog.sh
 ./deleteEmptyFilesWithLog.sh
@@ -69,7 +62,6 @@ chmod +x deleteEmptyFilesWithLog.sh
 # *** Task 3: Shell Script to Calculate Total Size of Files
 # *** Create a shell script named calculateSize.sh:
 #!/bin/bash
-
 # Check if a directory path is provided
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <directory_path>"
